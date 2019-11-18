@@ -42,7 +42,7 @@ namespace ProdConsApp
 						ProducersLB.ItemsSource = null;
 						ProducersLB.ItemsSource = producersLst;
 					}));
-					Thread.Sleep(500);
+					Thread.Sleep(1000);
 				}
 			}).Start();
 			new Thread(() => {
@@ -54,7 +54,7 @@ namespace ProdConsApp
 						ConsumersLB.ItemsSource = null;
 						ConsumersLB.ItemsSource = consumersLst;
 					}));
-					Thread.Sleep(500);
+					Thread.Sleep(1000);
 				}
 			}).Start();
 			
@@ -113,15 +113,14 @@ namespace ProdConsApp
 				stateThread = n;
 			}
 
-			public Producer(string name, int n, MainWindow t)
+			public Producer(int n, MainWindow t)
 			{
 				Thrd = new Thread(this.Run);
 				stateThread = 1;
 				mw = t;
 				uniqueId = mw.indexProducer++;
 				executionTime = n;
-				mw.producersLst.Add("Producer " + Convert.ToString(uniqueId)+"(Speed " + executionTime+")");
-				Thrd.Name = name;
+				mw.producersLst.Add("Producer " + Convert.ToString(uniqueId)+"(Speed " + executionTime+")");				
 				Thrd.Start();
 			}
 
@@ -147,9 +146,13 @@ namespace ProdConsApp
 					else if(execTime == 0)
 					{
 						// Получить мьютекс
-						myBuffer.mtx.WaitOne();							
-						myBuffer.Count++;							
-						mw.myBuf.insertProduct("Product" + Convert.ToString(mw.indexProd++)+"(from Producer " + Convert.ToString(uniqueId)+")", mw.lst);
+						myBuffer.mtx.WaitOne();	
+						if(myBuffer.Count < 10)
+						{
+							Thread.Sleep(100);
+							myBuffer.Count++;
+							mw.myBuf.insertProduct("Product" + Convert.ToString(mw.indexProd++) + "(from Producer " + Convert.ToString(uniqueId) + ")", mw.lst);
+						}						
 						myBuffer.mtx.ReleaseMutex();
 						execTime = executionTime;
 					}
@@ -217,8 +220,12 @@ namespace ProdConsApp
 					{
 						// Получить мьютекс
 						myBuffer.mtx.WaitOne();
-						myBuffer.Count--;
-						mw.myBuf.removeProduct(mw.lst);
+						if(myBuffer.Count > 0)
+						{
+							Thread.Sleep(100);
+							myBuffer.Count--;
+							mw.myBuf.removeProduct(mw.lst);
+						}						
 						myBuffer.mtx.ReleaseMutex();
 						execTime = executionTime;
 					}
@@ -248,13 +255,36 @@ namespace ProdConsApp
 			{
 				Console.WriteLine($"Unable to parse '{inputTime}'");
 			}
-			Producer p = new Producer("newProducr", result, this);
+			Producer p = new Producer(result, this);
 			producersThreads.Add(p);
 		}
 
 		private void Button_Click_2(object sender, RoutedEventArgs e)
-		{
-
+		{			
+			string pdcOrCons = textBox3.GetLineText(0);
+			int result2 = -1;
+			try
+			{				
+				result2 = Int32.Parse(pdcOrCons.Substring(1));
+			}
+			catch (FormatException)
+			{
+				Console.WriteLine($"Unable to parse '{pdcOrCons}'");
+			}
+			if (pdcOrCons[0] == 'p')
+			{
+				producersLst[result2 - 1] = "Producer deleted";
+				producersThreads[result2 - 1].Thrd.Abort();
+			}
+			else if (pdcOrCons[0] == 'c')
+			{
+				consumersLst[result2 - 1] = "Consumer deleted";
+				consumersThreads[result2 - 1].Thrd.Abort();
+			}
+			else
+			{
+				//data error
+			}
 		}
 
 		private void Button_Click_3(object sender, RoutedEventArgs e)
