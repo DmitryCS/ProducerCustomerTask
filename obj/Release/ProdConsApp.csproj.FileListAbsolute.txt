@@ -1,0 +1,15 @@
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\bin\Release\ProdConsApp.exe.config
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\bin\Release\ProdConsApp.exe
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\bin\Release\ProdConsApp.pdb
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp.csprojAssemblyReference.cache
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\MainWindow.g.cs
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\App.g.cs
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp_MarkupCompile.cache
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp_MarkupCompile.lref
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\MainWindow.baml
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp.g.resources
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp.Properties.Resources.resources
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp.csproj.GenerateResource.cache
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp.csproj.CoreCompileInputs.cache
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp.exe
+C:\Users\Dmitry\source\repos\ProducerConsumerApp\ProdConsApp\obj\Release\ProdConsApp.pdb

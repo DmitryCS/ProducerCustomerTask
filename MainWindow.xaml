@@ -1,0 +1,28 @@
+﻿<Window x:Class="ProdConsApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProdConsApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="457.309" Width="854.292">
+    <Grid>
+        <ListBox x:Name="BufferLB" HorizontalAlignment="Left" Height="242" Margin="318,62,0,0" VerticalAlignment="Top" Width="167" SelectionChanged="BufferLB_SelectionChanged"/>
+        <Button Content="Add Producer" HorizontalAlignment="Left" Margin="165,85,0,0" VerticalAlignment="Top" Width="84" Click="Button_Click"/>
+        <Label Content="Input time of work:" HorizontalAlignment="Left" Margin="151,30,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="146,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Add Consumer" HorizontalAlignment="Left" Margin="552,91,0,0" VerticalAlignment="Top" Width="84" Click="Button_Click_1"/>
+        <Label Content="Input time of work:" HorizontalAlignment="Left" Margin="538,36,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="533,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <ListBox x:Name="ProducersLB" HorizontalAlignment="Left" Height="184" Margin="133,120,0,0" VerticalAlignment="Top" Width="141"/>
+        <ListBox x:Name="ConsumersLB" HorizontalAlignment="Left" Height="184" Margin="525,120,0,0" VerticalAlignment="Top" Width="141"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="308,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Input p + number or c + number:" HorizontalAlignment="Left" Margin="267,309,0,0" VerticalAlignment="Top"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="281,374,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Pause/Resume" HorizontalAlignment="Left" Margin="370,374,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click_4"/>
+        <Button Content="ChangeSpeed" HorizontalAlignment="Left" Margin="478,374,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="478,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextChanged="TextBox_TextChanged_1"/>
+        <Label Content="Input new speed:" HorizontalAlignment="Left" Margin="468,310,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
